@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Sobermark — Sobriety Tracker App | Every Day Counts</title>
+<meta name="description" content="Sobermark is a judgment-free sobriety tracker. Count your days, watch money saved and time reclaimed grow, and lean on Bern the sun bear when it's hard. No feeds, no forums, no noise." />
+<link rel="canonical" href="https://sobermark.app/" />
+<meta name="theme-color" content="#0067ff" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sobermark" />
+<meta property="og:title" content="Sobermark — Every day counts." />
+<meta property="og:description" content="A judgment-free sobriety tracker. Count your days, see what you get back, and lean on Bern — one day at a time." />
+<meta property="og:url" content="https://sobermark.app/" />
+<meta property="og:image" content="https://sobermark.app/assets/bern-wave.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Sobermark — Every day counts." />
+<meta name="twitter:description" content="A judgment-free sobriety tracker. Count your days, see what you get back, and lean on Bern — one day at a time." />
+<meta name="twitter:image" content="https://sobermark.app/assets/bern-wave.png" />
+
+<link rel="icon" type="image/png" href="assets/bern-front.png" />
+<link rel="apple-touch-icon" href="assets/bern-front.png" />
+
+<!-- Fonts: real Google Sans (OFL release) self-hosted in fonts/; Figtree from
+     Google Fonts as fallback, Roboto Mono for counters. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Roboto+Mono:wght@400;500;600&display=swap" />
+
+<link rel="preload" as="font" type="font/woff2" href="fonts/GoogleSans-VF.woff2" crossorigin />
+<link rel="preload" as="image" href="assets/bern-tilt-wave.webp" />
+<link rel="stylesheet" href="css/styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Sobermark",
+  "operatingSystem": "ANDROID",
+  "applicationCategory": "HealthApplication",
+  "description": "A judgment-free sobriety tracker. Count your days sober, track money saved and time reclaimed, celebrate milestones, and get steady support from Bern the sun bear.",
+  "url": "https://sobermark.app/",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is Sobermark really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — the daily counter, craving tools, journey scenes and Bern are free. Sobermark Pro unlocks the full stats, every achievement badge and shareable win cards, with a 7-day free trial. You never need it to stay on track." } },
+    { "@type": "Question", "name": "What happens if I slip?", "acceptedAnswer": { "@type": "Answer", "text": "A slip restarts your day count — nothing else. Your money saved, hours reclaimed, best streak and every badge you've earned all stay. Progress isn't all-or-nothing here." } },
+    { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Completely. There's no social feed, no public profile, and nothing is shared without you asking. Your journey is yours alone." } },
+    { "@type": "Question", "name": "Does it work for any habit?", "acceptedAnswer": { "@type": "Answer", "text": "Alcohol, nicotine, or anything you're stepping back from — if it can be counted in days, Sobermark can hold it for you." } },
+    { "@type": "Question", "name": "Will it nag me?", "acceptedAnswer": { "@type": "Answer", "text": "Never. Bern speaks up around milestones and hard moments, and stays quiet the rest of the time. You control every notification." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============ SVG ICON SPRITE (design-system line icons) ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 5c-2.5 4.5-9.5 9-9.5 9Z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.3l6-.8L12 3Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5 4 5 9a5 5 0 0 1-10 0c0-1.5.8-2.8 1.5-3.5C9 10 9 12 10 12c1 0 1-2 0-4 1.5.5 2-2 2-5Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v5c0 1.7 2.7 3 6 3s6-1.3 6-3M3 12v5c0 1.7 2.7 3 6 3 1 0 2-.1 3-.4"/><circle cx="17" cy="15" r="4.5"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 384 512"><path fill="currentColor" stroke="none" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M8 5v14l11-7z"/></symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav-wrap" id="navWrap">
+  <nav class="nav" aria-label="Main">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="assets/bern-front.webp" alt="" width="46" height="46" /></span>
+      <span class="brand-word">sobermark</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#faq">Pricing</a>
+      <a href="#bern">About</a>
+    </div>
+    <a href="#download" class="btn btn-primary btn-sm">Get the app <svg class="icon" width="16" height="16"><use href="#i-arrow-right"/></svg></a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg" role="presentation"></div>
+  <div class="hero-inner">
+    <span class="badge badge-brand"><svg class="icon" width="14" height="14"><use href="#i-star"/></svg> Private by design. Everything stays on your phone.</span>
+    <h1 class="hero-title">
+      <span class="hero-title-a">Every day</span>
+      <span class="hero-title-b">counts.</span>
+    </h1>
+    <p class="hero-sub">Sobermark is your companion for a cleaner mind, a stronger you, and a better life — counted one honest day at a time.</p>
+    <div class="store-row">
+      <a href="#" class="store-badge" aria-label="Get it on Google Play">
+        <svg class="store-logo" width="24" height="24"><use href="#i-play"/></svg>
+        <span class="store-text"><span class="store-kicker">GET IT ON</span><span class="store-name">Google Play</span></span>
+      </a>
+    </div>
+    <div class="hero-stage">
+      <div class="float-chip chip-days">
+        <span class="chip-icon chip-icon-flame"><svg class="icon" width="24" height="24"><use href="#i-flame"/></svg></span>
+        <span class="chip-body">
+          <span class="chip-num" data-countup data-target="214" data-fmt="int">214</span>
+          <span class="chip-label">days sober</span>
+        </span>
+      </div>
+      <div class="float-chip chip-saved">
+        <span class="chip-icon chip-icon-coins"><svg class="icon" width="24" height="24"><use href="#i-coins"/></svg></span>
+        <span class="chip-body">
+          <span class="chip-num" data-countup data-target="3120" data-fmt="money">$3,120</span>
+          <span class="chip-label">money saved</span>
+        </span>
+      </div>
+      <img class="hero-bern" src="assets/bern-tilt-wave.webp" alt="Bern the sun bear waving hello" height="348" />
+    </div>
+  </div>
+  <div class="feature-bar-wrap" data-reveal>
+    <ul class="feature-bar">
+      <li><span class="fb-icon"><svg class="icon" width="21" height="21"><use href="#i-heart"/></svg></span> Supportive by design</li>
+      <li class="fb-divider" role="presentation"></li>
+      <li><span class="fb-icon"><svg class="icon" width="21" height="21"><use href="#i-star"/></svg></span> Celebrate progress</li>
+      <li class="fb-divider" role="presentation"></li>
+      <li><span class="fb-icon"><svg class="icon" width="21" height="21"><use href="#i-sun"/></svg></span> Focus on what matters</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="section">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">How it works</p>
+    <h2>Three steps. One day at a time.</h2>
+    <p class="section-sub">No overwhelming setup, no streak you can lose to a single slip. Just a calm way to see how far you've come.</p>
+  </div>
+  <div class="steps-grid">
+    <article class="card step-card" data-reveal>
+      <span class="step-icon"><svg class="icon" width="28" height="28"><use href="#i-calendar"/></svg></span>
+      <span class="step-num">01</span>
+      <h3>Set your day one</h3>
+      <p>Mark the day you started. Sobermark counts every day forward — automatically, from the moment you wake up.</p>
+    </article>
+    <article class="card step-card" data-reveal data-delay="110">
+      <span class="step-icon"><svg class="icon" width="28" height="28"><use href="#i-chart"/></svg></span>
+      <span class="step-num">02</span>
+      <h3>Watch it add up</h3>
+      <p>See days sober, money saved, and hours reclaimed grow in real time. Proof that the small choices are stacking.</p>
+    </article>
+    <article class="card step-card" data-reveal data-delay="220">
+      <span class="step-icon"><svg class="icon" width="28" height="28"><use href="#i-heart"/></svg></span>
+      <span class="step-num">03</span>
+      <h3>Lean on Bern</h3>
+      <p>On the hard days, Bern is there with a steady word. No feeds. No forums. No judgment — just presence.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ FEATURE DEEP-DIVE ============ -->
+<section id="features" class="section deep-dive">
+  <div class="dd-row">
+    <div class="dd-media dd-media-blue" data-reveal>
+      <img src="assets/bern-hands-clasped.webp" alt="Bern with hands clasped" height="320" loading="lazy" />
+    </div>
+    <div class="dd-text" data-reveal data-delay="120">
+      <p class="eyebrow">The counter</p>
+      <h3>A number that only ever grows.</h3>
+      <p class="dd-body">Your day count is the heartbeat of the app. It counts from your exact quit time — and a slip never wipes your winnings. Money saved, hours reclaimed and badges earned stay yours.</p>
+      <ul class="check-list">
+        <li><span class="check-dot"><svg class="icon" width="15" height="15"><use href="#i-check"/></svg></span> Live day, hour, and minute counter</li>
+        <li><span class="check-dot"><svg class="icon" width="15" height="15"><use href="#i-check"/></svg></span> Money-saved and time-reclaimed totals</li>
+        <li><span class="check-dot"><svg class="icon" width="15" height="15"><use href="#i-check"/></svg></span> A streak widget for your home screen</li>
+      </ul>
+    </div>
+  </div>
+  <div class="dd-row dd-flip">
+    <div class="dd-text" data-reveal>
+      <p class="eyebrow">Milestones</p>
+      <h3>Every milestone, quietly celebrated.</h3>
+      <p class="dd-body">24 hours. One week. 30, 90, 365 days. Sobermark marks each one with a small moment of recognition — the kind a good friend would give you.</p>
+      <ul class="check-list">
+        <li><span class="check-dot"><svg class="icon" width="15" height="15"><use href="#i-check"/></svg></span> Beautiful milestone cards to keep</li>
+        <li><span class="check-dot"><svg class="icon" width="15" height="15"><use href="#i-check"/></svg></span> Gentle nudges before big days</li>
+        <li><span class="check-dot"><svg class="icon" width="15" height="15"><use href="#i-check"/></svg></span> A private timeline of how far you've come</li>
+      </ul>
+    </div>
+    <div class="dd-media dd-media-cream" data-reveal data-delay="120">
+      <img src="assets/bern-wave.webp" alt="Bern waving" height="320" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ MILESTONES ============ -->
+<section id="milestones" class="section">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">Milestones</p>
+    <h2>Small wins, worth marking.</h2>
+    <p class="section-sub">Hover any milestone to see what it means. Sobermark celebrates each one the moment you reach it.</p>
+  </div>
+  <div class="milestone-grid">
+    <div class="ms-tile ms-blue" tabindex="0" data-reveal>
+      <span class="ms-orb"><svg class="icon" width="22" height="22"><use href="#i-sun"/></svg></span>
+      <span class="ms-big">24h</span>
+      <span class="ms-label">First day</span>
+      <span class="ms-note">The hardest one. You did it.</span>
+    </div>
+    <div class="ms-tile ms-cream" tabindex="0" data-reveal data-delay="70">
+      <span class="ms-orb"><svg class="icon" width="22" height="22"><use href="#i-star"/></svg></span>
+      <span class="ms-big">7</span>
+      <span class="ms-label">One week</span>
+      <span class="ms-note">A full cycle of sleep, mood, and mornings.</span>
+    </div>
+    <div class="ms-tile ms-blue" tabindex="0" data-reveal data-delay="140">
+      <span class="ms-orb"><svg class="icon" width="22" height="22"><use href="#i-flame"/></svg></span>
+      <span class="ms-big">30</span>
+      <span class="ms-label">One month</span>
+      <span class="ms-note">New habits are starting to feel like yours.</span>
+    </div>
+    <div class="ms-tile ms-green" tabindex="0" data-reveal data-delay="210">
+      <span class="ms-orb"><svg class="icon" width="22" height="22"><use href="#i-shield"/></svg></span>
+      <span class="ms-big">90</span>
+      <span class="ms-label">Ninety days</span>
+      <span class="ms-note">The reset window. Your brain is thanking you.</span>
+    </div>
+    <div class="ms-tile ms-cream" tabindex="0" data-reveal data-delay="280">
+      <span class="ms-orb"><svg class="icon" width="22" height="22"><use href="#i-heart"/></svg></span>
+      <span class="ms-big">180</span>
+      <span class="ms-label">Half a year</span>
+      <span class="ms-note">Steady. This is who you are now.</span>
+    </div>
+    <div class="ms-tile ms-dark" tabindex="0" data-reveal data-delay="350">
+      <span class="ms-orb"><svg class="icon" width="22" height="22"><use href="#i-star"/></svg></span>
+      <span class="ms-big">365</span>
+      <span class="ms-label">One year</span>
+      <span class="ms-note">A whole year of choosing yourself.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAVINGS CALCULATOR ============ -->
+<section id="calculator" class="section">
+  <div class="calc-grid">
+    <div data-reveal>
+      <div class="section-head section-head-left">
+        <p class="eyebrow">Savings calculator</p>
+        <h2>See what you get back.</h2>
+        <p class="section-sub">Drag the sliders. This is money and time that quietly returns to you — Sobermark keeps the running total for real.</p>
+      </div>
+      <div class="sliders">
+        <div class="slider-row">
+          <div class="slider-head">
+            <label for="perWeek">Drinks per week</label>
+            <output id="perWeekOut">6</output>
+          </div>
+          <input type="range" id="perWeek" min="0" max="30" value="6" />
+        </div>
+        <div class="slider-row">
+          <div class="slider-head">
+            <label for="costEach">Cost per drink</label>
+            <output id="costEachOut">$9</output>
+          </div>
+          <input type="range" id="costEach" min="3" max="25" value="9" />
+        </div>
+      </div>
+    </div>
+    <div class="calc-card" data-reveal data-delay="120">
+      <p class="calc-kicker">Back in your pocket, per year</p>
+      <p class="calc-yearly" id="calcYearly">$2,808</p>
+      <p class="calc-weekly" id="calcWeekly">that's $54 every week</p>
+      <div class="calc-rule"></div>
+      <div class="calc-splits">
+        <div>
+          <p class="calc-split-num" id="calcFive">$14,040</p>
+          <p class="calc-split-label">over 5 years</p>
+        </div>
+        <div class="calc-split-rule"></div>
+        <div>
+          <p class="calc-split-num" id="calcHours">468h</p>
+          <p class="calc-split-label">clearer time / year</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BERN COMPANION ============ -->
+<section id="bern" class="section">
+  <div class="bern-panel">
+    <div class="bern-stage" data-reveal>
+      <img src="assets/bern-hand-on-heart.webp" alt="Bern with a hand on his heart" height="400" loading="lazy" />
+    </div>
+    <div class="bern-copy" data-reveal data-delay="120">
+      <p class="eyebrow">Meet Bern</p>
+      <h2>A companion, not a coach.</h2>
+      <p class="bern-body">Bern doesn't lecture, track your feed, or hand you a program. Bern just shows up — with the right steady words for the moment you're in.</p>
+      <div class="bern-lines" id="bernLines">
+        <button class="bern-line is-active" aria-expanded="true">
+          <span class="bl-q">Rough night?</span>
+          <span class="bl-a">You don't have to be perfect. You just have to not give up on the streak — and it's still here.</span>
+        </button>
+        <button class="bern-line" aria-expanded="false">
+          <span class="bl-q">Craving hits?</span>
+          <span class="bl-a">It peaks and passes in about 20 minutes. Let's count them down together.</span>
+        </button>
+        <button class="bern-line" aria-expanded="false">
+          <span class="bl-q">Big day tomorrow?</span>
+          <span class="bl-a">I'll remind you gently. No pressure, no countdown anxiety — just a nudge.</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT BAND ============ -->
+<section class="section stat-section" data-reveal>
+  <dl class="stat-band">
+    <div class="stat">
+      <dd data-countup data-target="28" data-fmt="int">28</dd>
+      <dt>Achievements to earn</dt>
+    </div>
+    <div class="stat">
+      <dd data-countup data-target="100" data-fmt="pct">100%</dd>
+      <dt>On your phone, private</dt>
+    </div>
+    <div class="stat">
+      <dd data-countup data-target="7" data-fmt="int">7</dd>
+      <dt>Days of Pro, free to try</dt>
+    </div>
+    <div class="stat">
+      <dd data-countup data-target="1" data-fmt="int">1</dd>
+      <dt>Day at a time</dt>
+    </div>
+  </dl>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="section faq-section">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">Questions</p>
+    <h2>Everything you might be wondering.</h2>
+  </div>
+  <div class="faq-list" id="faqList">
+    <div class="faq-item is-open" data-reveal>
+      <button class="faq-q" aria-expanded="true">
+        <span>Is Sobermark really free?</span>
+        <span class="faq-toggle"><svg class="icon" width="17" height="17"><use href="#i-plus"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Yes — the daily counter, craving tools, journey scenes and Bern are free. Sobermark Pro unlocks the full stats, every achievement badge and shareable win cards, with a 7-day free trial. You never need it to stay on track.</p></div>
+    </div>
+    <div class="faq-item" data-reveal data-delay="60">
+      <button class="faq-q" aria-expanded="false">
+        <span>What happens if I slip?</span>
+        <span class="faq-toggle"><svg class="icon" width="17" height="17"><use href="#i-plus"/></svg></span>
+      </button>
+      <div class="faq-a"><p>A slip restarts your day count — nothing else. Your money saved, hours reclaimed, best streak and every badge you've earned all stay. Progress isn't all-or-nothing here.</p></div>
+    </div>
+    <div class="faq-item" data-reveal data-delay="120">
+      <button class="faq-q" aria-expanded="false">
+        <span>Is my data private?</span>
+        <span class="faq-toggle"><svg class="icon" width="17" height="17"><use href="#i-plus"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Completely. There's no social feed, no public profile, and nothing is shared without you asking. Your journey is yours alone.</p></div>
+    </div>
+    <div class="faq-item" data-reveal data-delay="180">
+      <button class="faq-q" aria-expanded="false">
+        <span>Does it work for any habit?</span>
+        <span class="faq-toggle"><svg class="icon" width="17" height="17"><use href="#i-plus"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Alcohol, nicotine, or anything you're stepping back from — if it can be counted in days, Sobermark can hold it for you.</p></div>
+    </div>
+    <div class="faq-item" data-reveal data-delay="240">
+      <button class="faq-q" aria-expanded="false">
+        <span>Will it nag me?</span>
+        <span class="faq-toggle"><svg class="icon" width="17" height="17"><use href="#i-plus"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Never. Bern speaks up around milestones and hard moments, and stays quiet the rest of the time. You control every notification.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOWNLOAD CTA ============ -->
+<section id="download" class="section cta-section" data-reveal>
+  <div class="cta-panel">
+    <img class="cta-bern" src="assets/bern-wave.webp" alt="Bern waving goodbye" height="300" loading="lazy" />
+    <div class="cta-copy">
+      <h2>Start your streak today.</h2>
+      <p>No feeds, no forums, no noise. Just you, your progress, and Bern — one day at a time.</p>
+      <div class="store-row store-row-left">
+        <a href="#" class="store-badge" aria-label="Get it on Google Play">
+          <svg class="store-logo" width="24" height="24"><use href="#i-play"/></svg>
+          <span class="store-text"><span class="store-kicker">GET IT ON</span><span class="store-name">Google Play</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-row">
+        <span class="footer-mark"><img src="assets/bern-front.webp" alt="" width="40" height="40" loading="lazy" /></span>
+        <span class="footer-word">sobermark</span>
+      </div>
+      <p>Track your sobriety one day at a time — with Bern by your side. No feeds, no forums, no noise.</p>
+      <span class="badge badge-streak"><svg class="icon" width="14" height="14"><use href="#i-flame"/></svg> Every day counts.</span>
+    </div>
+    <nav class="footer-col" aria-label="Product">
+      <h4>Product</h4>
+      <a href="#features">Features</a>
+      <a href="#faq">Pricing</a>
+      <a href="#download">Download</a>
+      <a href="#">What's new</a>
+    </nav>
+    <nav class="footer-col" aria-label="Company">
+      <h4>Company</h4>
+      <a href="#bern">About</a>
+      <a href="#bern">Bern</a>
+      <a href="#">Careers</a>
+      <a href="#">Press kit</a>
+    </nav>
+    <nav class="footer-col" aria-label="Support">
+      <h4>Support</h4>
+      <a href="mailto:anthonycorby@gmail.com">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="privacy.html">Terms</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Sobermark. One day at a time.</span>
+    <span>Made with care, not judgment.</span>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
