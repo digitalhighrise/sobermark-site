@@ -183,6 +183,29 @@ h1, h2, h3, h4, p, dl, dd, dt { margin: 0; }
 }
 .hero-inner { position: relative; z-index: 2; text-align: center; padding: 30px 20px 0; max-width: 1240px; margin: 0 auto; }
 .hero-inner > .badge { margin-bottom: 22px; }
+
+/* Hero phones — the app itself, flanking the headline on a slight bevel.
+   Hidden below 1200px so they never crowd the title. */
+.hero-phone {
+  position: absolute; z-index: 1; top: 110px;
+  width: clamp(220px, 18vw, 268px);
+  padding: 10px; border-radius: 40px;
+  background: linear-gradient(155deg, #10193c 0%, #060b20 100%);
+  box-shadow:
+    0 2px 0 1px rgba(255,255,255,0.06) inset,
+    0 46px 90px -28px rgba(9, 20, 58, 0.55),
+    0 18px 40px -18px rgba(9, 20, 58, 0.35);
+}
+.hero-phone img { display: block; width: 100%; height: auto; border-radius: 30px; }
+.hero-phone-left {
+  left: max(20px, calc(50% - 46vw));
+  transform: perspective(1400px) rotateY(10deg) rotate(-6.5deg);
+}
+.hero-phone-right {
+  right: max(20px, calc(50% - 46vw));
+  transform: perspective(1400px) rotateY(-10deg) rotate(6.5deg);
+}
+@media (max-width: 1200px) { .hero-phone { display: none; } }
 .hero-title {
   font-family: var(--font-hero); font-weight: 700;
   font-size: clamp(64px, 9vw, 120px); line-height: 0.9; letter-spacing: -0.04em;
