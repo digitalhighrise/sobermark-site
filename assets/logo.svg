@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="1254" height="1254" viewBox="0 0 1254 1254">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="626.24" cy="613.93" r="430.27"/>
+    </clipPath>
+  </defs>
+  <circle cx="626.24" cy="613.93" r="430.27" fill="#0143BC"/>
+  <polygon points="0,1135 442,644 473,665 628,471 782,664 811,644 1254,1129 1254,1162 830,782 790,813 673,690 554,801 485,750 0,1149" fill="#FFFFFF" clip-path="url(#circleClip)"/>
+</svg>
