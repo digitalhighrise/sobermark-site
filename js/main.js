@@ -3,6 +3,40 @@
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ---------- local currency ----------
+   Money on the page follows the visitor's locale (same region map as the app).
+   Falls back to GBP when the region can't be told. */
+const REGION_CURRENCY = {
+  GB: 'GBP', US: 'USD', CA: 'CAD', AU: 'AUD', NZ: 'NZD',
+  SE: 'SEK', NO: 'NOK', DK: 'DKK', CH: 'CHF', PL: 'PLN', CZ: 'CZK',
+  IN: 'INR', BR: 'BRL', MX: 'MXN', ZA: 'ZAR', SG: 'SGD', HK: 'HKD', JP: 'JPY',
+  IE: 'EUR', DE: 'EUR', FR: 'EUR', ES: 'EUR', IT: 'EUR', NL: 'EUR', BE: 'EUR',
+  AT: 'EUR', PT: 'EUR', FI: 'EUR', GR: 'EUR', SK: 'EUR', SI: 'EUR', LV: 'EUR',
+  LT: 'EUR', EE: 'EUR', LU: 'EUR', CY: 'EUR', MT: 'EUR', HR: 'EUR',
+};
+const localCurrency = (() => {
+  try {
+    const region = new Intl.Locale(navigator.language).maximize().region;
+    return (region && REGION_CURRENCY[region]) || 'GBP';
+  } catch {
+    return 'GBP';
+  }
+})();
+const fmtMoney = v => {
+  try {
+    return new Intl.NumberFormat(navigator.language, {
+      style: 'currency', currency: localCurrency, maximumFractionDigits: 0,
+    }).format(Math.round(v));
+  } catch {
+    return '£' + Math.round(v).toLocaleString('en-GB');
+  }
+};
+// Static fallback text in the HTML is written in dollars; localise it on load
+// so the pre-animation frame already shows the visitor's own currency.
+document.querySelectorAll('[data-countup][data-fmt="money"]').forEach(el => {
+  el.textContent = fmtMoney(Number(el.dataset.target));
+});
+
 /* ---------- sticky nav ---------- */
 const navWrap = document.getElementById('navWrap');
 const onScroll = () => navWrap.classList.toggle('is-scrolled', window.scrollY > 12);
@@ -29,9 +63,9 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
 /* ---------- count-up ---------- */
 const formats = {
   int: v => Math.round(v).toLocaleString('en-US'),
-  money: v => '$' + Math.round(v).toLocaleString('en-US'),
+  money: v => fmtMoney(v),
   millions: v => (v / 1000000).toFixed(1) + 'M',
-  'money-millions': v => '$' + (v / 1000000).toFixed(1) + 'M',
+  'money-millions': v => fmtMoney(v / 1000000).replace(/([0-9.,]+)/, '$1M'),
   pct: v => Math.round(v) + '%',
   rating: v => v.toFixed(1) + '★',
 };
@@ -61,7 +95,7 @@ document.querySelectorAll('[data-countup]').forEach(el => {
 const perWeek = document.getElementById('perWeek');
 const costEach = document.getElementById('costEach');
 if (perWeek && costEach) {
-  const money = v => '$' + Math.round(v).toLocaleString('en-US');
+  const money = fmtMoney;
   const paintTrack = input => {
     const pct = ((input.value - input.min) / (input.max - input.min)) * 100;
     input.style.background = `linear-gradient(to right, var(--blue-500) ${pct}%, var(--slate-200) ${pct}%)`;
@@ -72,7 +106,7 @@ if (perWeek && costEach) {
     const weekly = n * c;
     const yearly = weekly * 52;
     document.getElementById('perWeekOut').textContent = n;
-    document.getElementById('costEachOut').textContent = '$' + c;
+    document.getElementById('costEachOut').textContent = fmtMoney(c);
     document.getElementById('calcYearly').textContent = money(yearly);
     document.getElementById('calcWeekly').textContent = `that's ${money(weekly)} every week`;
     document.getElementById('calcFive').textContent = money(yearly * 5);
