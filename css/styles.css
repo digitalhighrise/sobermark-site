@@ -189,8 +189,8 @@ h1, h2, h3, h4, p, dl, dd, dt { margin: 0; }
 /* Hero phones — the app itself, flanking the headline on a slight bevel.
    Hidden below 1200px so they never crowd the title. */
 .hero-phone {
-  position: absolute; z-index: 1; top: 110px;
-  width: clamp(220px, 18vw, 268px);
+  position: absolute; z-index: 1; top: 96px;
+  width: clamp(250px, 21vw, 320px);
   padding: 10px; border-radius: 40px;
   background: linear-gradient(155deg, #10193c 0%, #060b20 100%);
   box-shadow:
