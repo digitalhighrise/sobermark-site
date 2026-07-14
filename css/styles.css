@@ -175,7 +175,9 @@ h1, h2, h3, h4, p, dl, dd, dt { margin: 0; }
 /* ---------- HERO ---------- */
 .hero { position: relative; overflow: hidden; padding-bottom: 44px; }
 .hero-bg {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 600px; z-index: 0;
+  /* The plate art has a transparent feathered border baked in — oversize the
+     box so that border falls outside the viewport at any width. */
+  position: absolute; left: -6%; right: -6%; bottom: -48px; height: 660px; z-index: 0;
   background-image: url(../assets/bg-plate-05.webp);
   background-size: cover; background-position: center bottom;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 44%);
@@ -198,11 +200,13 @@ h1, h2, h3, h4, p, dl, dd, dt { margin: 0; }
 }
 .hero-phone img { display: block; width: 100%; height: auto; border-radius: 30px; }
 .hero-phone-left {
-  left: max(20px, calc(50% - 46vw));
+  /* Anchored to the content column, not the viewport edge, so ultrawide
+     monitors don't strand the phones in the corners. */
+  left: max(20px, calc(50% - min(46vw, 730px)));
   transform: perspective(1400px) rotateY(10deg) rotate(-6.5deg);
 }
 .hero-phone-right {
-  right: max(20px, calc(50% - 46vw));
+  right: max(20px, calc(50% - min(46vw, 730px)));
   transform: perspective(1400px) rotateY(-10deg) rotate(6.5deg);
 }
 @media (max-width: 1200px) { .hero-phone { display: none; } }
