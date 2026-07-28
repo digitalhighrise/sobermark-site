@@ -98,6 +98,16 @@
 /* ---------- BASE ---------- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
+/* ---------- LARGE-SCREEN SCALING ----------
+   The layout is tuned for ~1400-1600px laptop viewports; on QHD/4K
+   monitors at 100% browser zoom it sat small in a sea of margin. Scale
+   the whole page up in steps, the same way browser zoom would. */
+@media (min-width: 1720px) { html { zoom: 1.1; } }
+@media (min-width: 1960px) { html { zoom: 1.25; } }
+@media (min-width: 2400px) { html { zoom: 1.4; } }
+@media (min-width: 3000px) { html { zoom: 1.65; } }
+@media (min-width: 3600px) { html { zoom: 2; } }
 body {
   margin: 0;
   background: linear-gradient(to bottom, var(--bg-page-top) 0%, var(--bg-page) 100%);
