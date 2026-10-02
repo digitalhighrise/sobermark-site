@@ -309,7 +309,7 @@
         <a href="guides/best-sobriety-apps-2026.html">Guides</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="btn btn-blue" href="#download">Get the app <span aria-hidden="true">→</span></a>
+      <a class="btn btn-blue" id="get-app" href="#download">Get the app <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </header>
@@ -587,6 +587,15 @@
     }
     function run() { fit(); centre(); }
     run(); window.addEventListener('resize', run); window.addEventListener('load', run);
+  })();
+  // "Get the app" opens the store for the phone you are on; on a computer it scrolls to both store buttons.
+  (function () {
+    var btn = document.getElementById('get-app'); if (!btn) return;
+    var ua = navigator.userAgent || '';
+    var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var android = /Android/i.test(ua);
+    if (ios) btn.href = 'https://apps.apple.com/app/sober-tracker-sobermark/id6802116915';
+    else if (android) btn.href = 'https://play.google.com/store/apps/details?id=app.sobermark';
   })();
   // No copying: block the context menu, drag, selection and copy shortcuts.
   ['contextmenu', 'dragstart', 'selectstart', 'copy', 'cut'].forEach(function (t) { document.addEventListener(t, function (e) { e.preventDefault(); }); });
