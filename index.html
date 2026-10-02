@@ -287,7 +287,7 @@
     .cta { border-radius: 28px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero-thumbs .lid { animation: none; }
+    /* the blink stays on even with reduce-motion: it is tiny, slow-paced and not a flash */
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }
     .stars span { animation: none; }
