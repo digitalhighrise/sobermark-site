@@ -73,6 +73,9 @@
     --wrap: 1200px; --gutter: 24px;
   }
   * { box-sizing: border-box; }
+  /* nothing on the page can be dragged over, selected or dragged out */
+  html, body, body * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  img, svg { -webkit-user-drag: none; user-drag: none; }
   html { scroll-behavior: smooth; }
   html, body { overflow-x: clip; max-width: 100%; }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.55 "Google Sans Flex Variable", system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
@@ -123,7 +126,11 @@
   /* hero: Bern gives a thumbs up beside the phones, never over them */
   .hero-duo { position: absolute; left: 50%; top: 0; width: 560px; height: 760px; margin-left: -305px; }
   /* Bern stands behind the phones and peeks out to the right */
-  .hero-thumbs { position: absolute; left: 565px; bottom: 106px; width: 300px; height: auto; z-index: 0; filter: drop-shadow(0 18px 24px rgba(11, 31, 107, 0.4)) drop-shadow(0 0 2px rgba(255,255,255,0.6)); }
+  .hero-thumbs { position: absolute; left: 565px; bottom: 106px; width: 300px; height: auto; aspect-ratio: 657 / 1100; z-index: 0; filter: drop-shadow(0 18px 24px rgba(11, 31, 107, 0.4)) drop-shadow(0 0 2px rgba(255,255,255,0.6)); }
+  .hero-thumbs img { display: block; width: 100%; height: 100%; }
+  .hero-thumbs svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-thumbs .lid { transform-box: fill-box; transform-origin: 50% 0; transform: scaleY(0); animation: blink 5.4s ease-in-out infinite; }
+  @keyframes blink { 0%, 40%, 45%, 48%, 53%, 100% { transform: scaleY(0); } 42.5%, 50.5% { transform: scaleY(1); } }
   .hero-duo .hero-phones { left: 0; margin-left: 0; top: 0; width: 560px; height: 760px; }
   .scribble-1 { right: auto; left: 20px; top: 30px; text-align: center; z-index: 6; }
   .scribble-2 { left: -30px; bottom: 120px; transform: rotate(-12deg); z-index: 6; }
@@ -245,14 +252,6 @@
     .hero-art { height: calc(760px * var(--hs, 1)); }
     .hero-duo { transform: scale(var(--hs, 1)); transform-origin: 50% 0; }
   }
-  @media (max-width: 1740px) and (min-width: 1381px) {
-    .hero-duo { margin-left: -345px; }
-    .hero-thumbs { left: calc(565px - max(0px, 830px - 50vw)); }
-  }
-  @media (max-width: 1380px) and (min-width: 1081px) {
-    .hero-duo { margin-left: -345px; }
-    .hero-thumbs { left: calc(430px - max(0px, 1330px - 100vw) / 2); width: 250px; bottom: 106px; }
-  }
   @media (max-width: 1080px) {
     .nav-links { display: none; }
     .nav-bar .btn { margin-left: auto; }
@@ -288,6 +287,7 @@
     .cta { border-radius: 28px; }
   }
   @media (prefers-reduced-motion: reduce) {
+    .hero-thumbs .lid { animation: none; }
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }
     .stars span { animation: none; }
@@ -329,7 +329,13 @@
       <div class="hero-art">
         <div class="scribble scribble-1 hand">One day<br>at a time<br>♡</div>
         <div class="hero-duo">
-          <img class="hero-thumbs" src="assets/mascots/bern-thumbs.webp" alt="Bern the blue bear giving a thumbs up" width="420" height="703">
+          <div class="hero-thumbs" role="img" aria-label="Bern the blue bear giving a thumbs up">
+            <img src="assets/mascots/bern-thumbs.webp" alt="" width="420" height="703" draggable="false">
+            <svg viewBox="0 0 657 1100" aria-hidden="true">
+              <g class="lid"><ellipse cx="299" cy="191" rx="26" ry="29" fill="#2F8DFB"/><path d="M279 197 Q299 211 319 197" fill="none" stroke="#10163A" stroke-width="6" stroke-linecap="round"/></g>
+              <g class="lid"><ellipse cx="459" cy="238" rx="23" ry="27" fill="#31923F" style="fill:#3191FD"/><path d="M441 243 Q459 256 477 243" fill="none" stroke="#10163A" stroke-width="6" stroke-linecap="round"/></g>
+            </svg>
+          </div>
         <div class="hero-phones">
           <div class="hp hp-left"><div class="phone"><div class="phone-screen"><img src="assets/app/milestones.webp" alt="Achievements: The First Hill, Muddy Paws, The Stream Crossing" width="780" height="1688"></div></div></div>
           <div class="hp hp-right"><div class="phone"><div class="phone-screen"><img src="assets/app/stats.webp" alt="Your proof: 228 pounds saved, 91 drinks skipped, 38 hours reclaimed" width="780" height="1688"></div></div></div>
@@ -569,7 +575,7 @@
   // Scale the hero art so the whole first screen fits, whatever the window height.
   (function () {
     var root = document.documentElement;
-    function fit() { root.style.setProperty('--hs', Math.max(0.55, Math.min(1, (window.innerHeight - 170) / 760)).toFixed(3)); }
+    function fit() { root.style.setProperty('--hs', Math.max(0.5, Math.min(1, (window.innerHeight - 170) / 760, (window.innerWidth - 760) / 945)).toFixed(3)); }
     // Centre the text + phones + bear as one group: measure its real left and right edges and nudge the grid.
     function centre() {
       var g = document.querySelector('.hero-grid'); if (!g) return;
@@ -582,6 +588,9 @@
     function run() { fit(); centre(); }
     run(); window.addEventListener('resize', run); window.addEventListener('load', run);
   })();
+  // No copying: block the context menu, drag, selection and copy shortcuts.
+  ['contextmenu', 'dragstart', 'selectstart', 'copy', 'cut'].forEach(function (t) { document.addEventListener(t, function (e) { e.preventDefault(); }); });
+  document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && /^[acxsu]$/i.test(e.key)) e.preventDefault(); });
   // Fade sections in as they scroll into view.
   (function () {
     var els = document.querySelectorAll('.reveal');
