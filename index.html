@@ -121,10 +121,11 @@
   .hp-right { left: 341px; top: 142px; z-index: 2; width: 225px; transform: rotate(9deg); transform-origin: 20% 100%; }
   .hp .phone { width: 100%; }
   /* hero: Bern gives a thumbs up beside the phones, never over them */
-  .hero-duo { position: absolute; left: 50%; top: 50px; width: 700px; height: 700px; margin-left: -330px; }
-  .hero-thumbs { position: absolute; left: 0; bottom: 30px; width: 230px; height: auto; z-index: 2; filter: drop-shadow(0 18px 24px rgba(11, 31, 107, 0.4)) drop-shadow(0 0 2px rgba(255,255,255,0.6)); }
-  .hero-duo .hero-phones { left: 215px; margin-left: 0; top: 0; transform: scale(.72); transform-origin: top left; }
-  .scribble-1 { right: auto; left: 40px; top: 90px; text-align: center; z-index: 6; }
+  .hero-duo { position: absolute; left: 50%; top: 0; width: 560px; height: 760px; margin-left: -300px; }
+  /* Bern stands behind the phones and peeks out to the right */
+  .hero-thumbs { position: absolute; left: 420px; bottom: 70px; width: 330px; height: auto; z-index: 0; filter: drop-shadow(0 18px 24px rgba(11, 31, 107, 0.4)) drop-shadow(0 0 2px rgba(255,255,255,0.6)); }
+  .hero-duo .hero-phones { left: 0; margin-left: 0; top: 0; width: 560px; height: 760px; }
+  .scribble-1 { right: auto; left: 20px; top: 30px; text-align: center; z-index: 6; }
   .scribble-2 { left: -30px; bottom: 120px; transform: rotate(-12deg); z-index: 6; }
   .scribble svg { display: block; margin: 8px auto 0; }
 
@@ -241,16 +242,8 @@
   .no-js .reveal { opacity: 1; transform: none; }
 
   @media (max-width: 1380px) and (min-width: 1081px) {
-    .hero-duo { margin-left: -380px; }
-    .hero-thumbs { width: 200px; }
-    .hero-duo .hero-phones { left: 190px; transform: scale(.64); }
-  }
-  @media (max-width: 1080px) {
-    .hero-art { height: auto !important; }
-    .hero-duo { position: relative; left: auto; top: auto; margin: 0 auto; width: 100%; height: auto; transform: none !important; display: flex; flex-direction: column; align-items: center; }
-    .hero-thumbs { position: relative; left: auto; bottom: auto; width: 220px; margin: 0; z-index: 2; }
-    .hero-duo .hero-phones { position: relative; left: auto !important; top: auto; align-self: flex-start; margin: -10px 0 -190px calc(50% - 280px) !important; width: 560px; height: 700px; transform: scale(.72) !important; transform-origin: top center; }
-    .scribble-1 { left: auto; right: 4%; top: 20px; }
+    .hero-duo { margin-left: -318px; }
+    .hero-thumbs { left: 400px; width: 290px; }
   }
   @media (max-width: 1080px) {
     .nav-links { display: none; }
@@ -274,13 +267,12 @@
     .nav-logo span { font-size: 21px; }
     .hero { padding-top: 128px; }
     .hero-sub { font-size: 18px; }
-    .hero-art { height: auto; }
-    .hero-thumbs { width: 170px; }
-    .hero-duo .hero-phones { transform: scale(.56) !important; margin-bottom: -280px !important; }
+    .hero-art { height: 560px; }
+    .hero-duo { transform: scale(.62); transform-origin: top center; margin-left: -250px; }
     .phone { border-radius: 40px; }
     .phone-screen { border-radius: 31px; }
     .scribble { font-size: 26px; }
-    .scribble-1 { right: -2px; top: 6px; font-size: 22px; }
+    .scribble-1 { display: none; }
     .scribble-2 { display: none; }
     .tour { border-radius: 32px; padding-top: 56px; }
     .tour-item { flex-basis: 220px; }
