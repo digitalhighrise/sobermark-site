@@ -115,14 +115,12 @@
   /* three phones: the main one upright, two tilted behind it; Bern leans over the top of the main phone */
   .hero-phones { position: absolute; left: 50%; top: 0; width: 560px; height: 760px; margin-left: -280px; }
   .hp { position: absolute; }
-  .hp-main { left: 145px; top: 118px; z-index: 3; width: 270px; }
-  .hp-left { left: -6px; top: 205px; z-index: 1; width: 225px; transform: rotate(-9deg); transform-origin: 80% 100%; }
-  .hp-right { left: 341px; top: 190px; z-index: 2; width: 225px; transform: rotate(9deg); transform-origin: 20% 100%; }
+  .hp-main { left: 145px; top: 70px; z-index: 3; width: 270px; }
+  .hp-left { left: -6px; top: 157px; z-index: 1; width: 225px; transform: rotate(-9deg); transform-origin: 80% 100%; }
+  .hp-right { left: 341px; top: 142px; z-index: 2; width: 225px; transform: rotate(9deg); transform-origin: 20% 100%; }
   .hp .phone { width: 100%; }
-  /* Bern leans over the top of the main phone, paws on the frame */
-  .hero-bear { position: absolute; z-index: 5; width: 270px; left: 145px; top: -4px; filter: drop-shadow(0 14px 18px rgba(11, 31, 107, 0.35)); pointer-events: none; }
   .scribble { position: absolute; font-size: 24px; line-height: 1.15; color: rgba(255,255,255,.94); transform: rotate(-8deg); }
-  .scribble-1 { right: -34px; top: 40px; text-align: center; z-index: 6; }
+  .scribble-1 { right: -34px; top: 20px; text-align: center; z-index: 6; }
   .scribble-2 { left: -30px; bottom: 120px; transform: rotate(-12deg); z-index: 6; }
   .scribble svg { display: block; margin: 8px auto 0; }
 
@@ -164,8 +162,6 @@
   .feature-art .blob { position: absolute; inset: 8% 10%; border-radius: 48% 52% 44% 56% / 50% 44% 56% 50%; }
   .feature-art .phone { position: relative; transform: rotate(-3deg); }
   .feature.flip .feature-art .phone { transform: rotate(3deg); }
-  .sticker { position: absolute; z-index: 4; width: 230px; left: calc(50% - 250px); bottom: 36px; filter: drop-shadow(0 14px 20px rgba(23, 51, 123, 0.28)); pointer-events: none; }
-  .feature.flip .sticker { left: auto; right: calc(50% - 250px); }
   .feature-copy .kicker { color: var(--brand-2); }
   .feature-copy h3 { font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; font-weight: 800; margin: 12px 0 16px; }
   .feature-copy p { color: var(--muted); font-size: 18px; }
@@ -271,8 +267,6 @@
     .scribble-2 { display: none; }
     .tour { border-radius: 32px; padding-top: 56px; }
     .tour-item { flex-basis: 220px; }
-    .sticker { width: 150px; left: calc(50% - 170px); bottom: 20px; }
-    .feature.flip .sticker { right: calc(50% - 170px); }
     .feature-art { min-height: 600px; }
     .band-phones .phone:nth-child(2) { display: none; }
     .cta { border-radius: 28px; }
@@ -323,7 +317,6 @@
           <div class="hp hp-left"><div class="phone"><div class="phone-screen"><img src="assets/app/milestones.webp" alt="Achievements: The First Hill, Muddy Paws, The Stream Crossing" width="780" height="1688"></div></div></div>
           <div class="hp hp-right"><div class="phone"><div class="phone-screen"><img src="assets/app/stats.webp" alt="Your proof: 228 pounds saved, 91 drinks skipped, 38 hours reclaimed" width="780" height="1688"></div></div></div>
           <div class="hp hp-main"><div class="phone"><div class="phone-screen"><img src="assets/app/home.webp" alt="The Sobermark home screen: 29 days clean and level 30" width="780" height="1688"></div></div></div>
-          <img class="hero-bear" src="assets/mascots/peek.webp" alt="Bern the blue bear leaning over the top of the phone" width="300" height="135">
         </div>
       </div>
     </div>
@@ -378,7 +371,6 @@
         <div class="feature-art">
           <div class="blob" style="background:#CFE0FF"></div>
           <div class="phone"><div class="phone-screen"><img src="assets/app/craving.webp" alt="The craving screen: this urge is just noise, you just kept £2.50" width="780" height="1688" loading="lazy"></div></div>
-          <img class="sticker" src="assets/mascots/bern-cheer.webp" alt="" width="230" height="230" loading="lazy">
         </div>
       </div>
 
@@ -396,7 +388,6 @@
         <div class="feature-art">
           <div class="blob" style="background:#DDE8FF"></div>
           <div class="phone"><div class="phone-screen"><img src="assets/app/checkin.webp" alt="The check-in window: Feeling good, type in how you feel" width="780" height="1688" loading="lazy"></div></div>
-          <img class="sticker" src="assets/mascots/bern-journal.webp" alt="" width="230" height="230" loading="lazy">
         </div>
       </div>
 
@@ -414,7 +405,6 @@
         <div class="feature-art">
           <div class="blob" style="background:#E3EBFF"></div>
           <div class="phone"><div class="phone-screen"><img src="assets/app/stats.webp" alt="Your proof: £228 saved, 91 drinks skipped, 38 hours reclaimed" width="780" height="1688" loading="lazy"></div></div>
-          <img class="sticker" src="assets/mascots/bern-savings.webp" alt="" width="230" height="230" loading="lazy">
         </div>
       </div>
 
@@ -432,7 +422,6 @@
         <div class="feature-art">
           <div class="blob" style="background:#CFE0FF"></div>
           <div class="phone"><div class="phone-screen"><img src="assets/app/milestones.webp" alt="Achievements: The First Hill, Muddy Paws, The Stream Crossing" width="780" height="1688" loading="lazy"></div></div>
-          <img class="sticker" src="assets/mascots/bern-journey.webp" alt="" width="230" height="230" loading="lazy">
         </div>
       </div>
     </div>
