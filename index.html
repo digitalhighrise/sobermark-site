@@ -112,15 +112,11 @@
   .store-google { height: 82px; margin: -13px -10px; }
   .hero-note { margin-top: 20px; font-size: 15px; opacity: .92; display: flex; align-items: center; gap: 8px; }
   .hero-art { position: relative; height: 760px; }
-  /* three phones: the main one upright, two tilted behind it; Bern leans over the top of the main phone */
-  .hero-phones { position: absolute; left: 50%; top: 0; width: 560px; height: 760px; margin-left: -280px; }
-  .hp { position: absolute; }
-  .hp-main { left: 145px; top: 70px; z-index: 3; width: 270px; }
-  .hp-left { left: -6px; top: 157px; z-index: 1; width: 225px; transform: rotate(-9deg); transform-origin: 80% 100%; }
-  .hp-right { left: 341px; top: 142px; z-index: 2; width: 225px; transform: rotate(9deg); transform-origin: 20% 100%; }
-  .hp .phone { width: 100%; }
   .scribble { position: absolute; font-size: 24px; line-height: 1.15; color: rgba(255,255,255,.94); transform: rotate(-8deg); }
-  .scribble-1 { right: -34px; top: 20px; text-align: center; z-index: 6; }
+  /* hero: Bern gives a thumbs up beside the home screen */
+  .hero-duo { position: absolute; left: 50%; top: 40px; width: 600px; height: 700px; margin-left: -300px; }
+  .hero-thumbs { position: absolute; left: 50%; bottom: 16px; width: 420px; height: auto; margin-left: -210px; filter: drop-shadow(0 22px 28px rgba(11, 31, 107, 0.45)) drop-shadow(0 0 2px rgba(255,255,255,0.6)); }
+  .scribble-1 { right: auto; left: 20px; top: 80px; text-align: center; z-index: 6; }
   .scribble-2 { left: -30px; bottom: 120px; transform: rotate(-12deg); z-index: 6; }
   .scribble svg { display: block; margin: 8px auto 0; }
 
@@ -259,7 +255,8 @@
     .hero { padding-top: 128px; }
     .hero-sub { font-size: 18px; }
     .hero-art { height: 480px; }
-    .hero-phones { transform: scale(.6); transform-origin: top center; }
+    .hero-duo { transform: scale(.62); transform-origin: top center; }
+    .hero-thumbs { bottom: -50px; }
     .phone { border-radius: 40px; }
     .phone-screen { border-radius: 31px; }
     .scribble { font-size: 26px; }
@@ -309,14 +306,12 @@
           <a class="store" href="https://apps.apple.com/app/sober-tracker-sobermark/id6802116915" aria-label="Download Sobermark on the App Store"><img src="assets/badges/app-store.svg" alt="Download on the App Store" width="150" height="50"></a>
           <a class="store store-google" href="https://play.google.com/store/apps/details?id=app.sobermark" aria-label="Get Sobermark on Google Play"><img src="assets/badges/google-play.png" alt="Get it on Google Play" width="212" height="82"></a>
         </div>
-        <p class="hero-note"><span aria-hidden="true">✨</span> Free to download. Pro has a 3-day free trial.</p>
+        <p class="hero-note">Free to download. Pro has a 3-day free trial.</p>
       </div>
       <div class="hero-art">
         <div class="scribble scribble-1 hand">One day<br>at a time<br>♡</div>
-        <div class="hero-phones">
-          <div class="hp hp-left"><div class="phone"><div class="phone-screen"><img src="assets/app/milestones.webp" alt="Achievements: The First Hill, Muddy Paws, The Stream Crossing" width="780" height="1688"></div></div></div>
-          <div class="hp hp-right"><div class="phone"><div class="phone-screen"><img src="assets/app/stats.webp" alt="Your proof: 228 pounds saved, 91 drinks skipped, 38 hours reclaimed" width="780" height="1688"></div></div></div>
-          <div class="hp hp-main"><div class="phone"><div class="phone-screen"><img src="assets/app/home.webp" alt="The Sobermark home screen: 29 days clean and level 30" width="780" height="1688"></div></div></div>
+        <div class="hero-duo">
+          <img class="hero-thumbs" src="assets/mascots/bern-thumbs.webp" alt="Bern the blue bear giving a thumbs up" width="420" height="703">
         </div>
       </div>
     </div>
