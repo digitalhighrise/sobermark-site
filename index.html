@@ -98,8 +98,8 @@
   .btn-white { background: #fff; color: var(--brand); box-shadow: 0 8px 20px rgba(11, 31, 107, 0.25); }
 
   /* hero */
-  .hero { position: relative; margin-top: -104px; min-height: calc(100svh + 16px); display: flex; align-items: center; padding: 100px 0 118px; color: #fff; overflow: hidden; background: radial-gradient(90% 70% at 70% 30%, #6F95FF 0%, #2F6BFF 38%, #1E4BC4 75%, #16388F 100%); }
-  .hero::after { content: ""; position: absolute; left: -5%; right: -5%; bottom: -1px; height: 140px; background: var(--bg); border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+  .hero { position: relative; margin-top: -104px; min-height: calc(100svh + 16px); display: flex; align-items: center; padding: 96px 0 64px; color: #fff; overflow: hidden; background: radial-gradient(90% 70% at 70% 30%, #6F95FF 0%, #2F6BFF 38%, #1E4BC4 75%, #16388F 100%); }
+  .hero-foot { position: absolute; left: 0; right: 0; bottom: 22px; margin: 0; text-align: center; z-index: 2; font-size: 12.5px; opacity: .88; padding: 0 16px; }
   .hero-grid { position: relative; z-index: 2; width: 100%; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 32px; align-items: center; }
   .hero h1 { font-size: clamp(48px, 6.6vw, 88px); line-height: 1; font-weight: 800; margin: 20px 0 24px; }
   .hero-sub { font-size: 18px; line-height: 1.55; max-width: 500px; opacity: .96; }
@@ -317,7 +317,6 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="kicker">Private by design. Everything stays on your phone.</div>
         <h1>Every day<br>counts.</h1>
         <p class="hero-sub"><b>Sobermark is a private sobriety tracker.</b> It counts your clean days from your exact quit time, adds up the money you've saved, and gives you a craving button to hold when it gets hard. Check in once a day, collect milestone badges, and keep it all on your phone: no account, no feed.</p>
         <div class="stores" id="download">
@@ -338,6 +337,7 @@
         </div>
       </div>
     </div>
+      <p class="hero-foot kicker">Private by design. Everything stays on your phone.</p>
   </section>
 
   <section id="tour" style="padding:96px 0 0">
@@ -568,7 +568,7 @@
   // Scale the hero art so the whole first screen fits, whatever the window height.
   (function () {
     var root = document.documentElement;
-    function fit() { root.style.setProperty('--hs', Math.max(0.55, Math.min(1, (window.innerHeight - 205) / 760)).toFixed(3)); }
+    function fit() { root.style.setProperty('--hs', Math.max(0.55, Math.min(1, (window.innerHeight - 170) / 760)).toFixed(3)); }
     fit(); window.addEventListener('resize', fit);
   })();
   // Fade sections in as they scroll into view.
