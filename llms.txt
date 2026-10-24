@@ -1,0 +1,21 @@
+# Sobermark
+
+> Sobermark is a private sobriety tracker app for Android and iPhone. It counts sober days, money saved and drinks skipped, gives you a press-and-hold craving button and a 10 minute ride-it-out timer for hard moments, and marks milestones with Bern, a blue bear companion. No account, no sign-up: everything stays on your phone.
+
+Made by Digital Highrise Ltd (London, UK). Works for quitting alcohol, smoking, vaping, cannabis and gambling, or a custom habit.
+
+## Key facts
+- Platforms: Android (Google Play, package app.sobermark) and iPhone (App Store id6802116915)
+- Price: free core (day counter, craving button, ride-it-out timer, daily check-in). Sobermark Pro adds full stats, the full journal, badges and share cards, with a 3 day free trial then a yearly or weekly plan.
+- Privacy: no account, no social feed, data stored on the device only. Reset or erase any time.
+- If you slip: reset your date and keep going; your best streak stays on the record.
+- Not a medical device. Heavy drinkers should speak to a doctor before stopping suddenly.
+
+## Links
+- [Google Play](https://play.google.com/store/apps/details?id=app.sobermark)
+- [App Store](https://apps.apple.com/app/sober-tracker-sobermark/id6802116915)
+- [Homepage](https://sobermark.app/)
+- [Guides: comparisons of sobriety apps](https://sobermark.app/guides/)
+- [Best sobriety apps in 2026](https://sobermark.app/guides/best-sobriety-apps-2026.html)
+- [Best sober day counter apps in 2026](https://sobermark.app/guides/best-sober-day-counter-apps-2026.html)
+- [Privacy policy](https://sobermark.app/privacy.html)
