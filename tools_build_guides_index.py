@@ -86,9 +86,10 @@ open(os.path.join(GUIDES, 'index.html'), 'w', encoding='utf-8').write(page)
 
 urls = ['<url><loc>https://sobermark.app/</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         '<url><loc>https://sobermark.app/privacy.html</loc><lastmod>2026-08-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>',
-        '<url><loc>https://sobermark.app/guides/</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>']
+        '<url><loc>https://sobermark.app/terms.html</loc><lastmod>2026-09-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>',
+        '<url><loc>https://sobermark.app/guides/</loc><lastmod>2026-10-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>']
 for s, t, d in arts:
-    urls.append(f'<url><loc>https://sobermark.app/guides/{s}.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>')
+    urls.append(f'<url><loc>https://sobermark.app/guides/{s}.html</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>')
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  ' + '\n  '.join(urls) + '\n</urlset>\n'
 open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8').write(sm)
 print(f'index + sitemap written for {len(arts)} articles')
